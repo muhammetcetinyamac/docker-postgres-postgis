@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  mc-postgis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - mc-postgis-vol:/var/lib/postgresql/data
+
+volumes:
+  mc-postgis-vol:
